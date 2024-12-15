@@ -1,0 +1,21 @@
+const gql = require("graphql-tag");
+
+const movieTypeDefs = gql`
+    type Movie {
+        movieId: ID!
+        movieName: String!
+        genre: String!
+        favorite: String!
+        rating: Float!
+        moviePoster: String
+        moviePlot: String!
+    }
+
+    type Query {
+        movies: [Movie!]!
+        moviesByGenre(genre: String!): [Movie!]!
+        movie(movieId: ID!): Movie!
+    }
+`;
+
+module.exports = { movieTypeDefs };
